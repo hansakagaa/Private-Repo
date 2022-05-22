@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="MainFormContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+   <children>
+      <StackPane layoutX="20.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1310.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="20.0">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: eeeeee;">
+               <left>
+                  <VBox prefHeight="550.0" prefWidth="310.0" style="-fx-background-color: eeeeee; -fx-background-radius: 25;" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="550.0" prefWidth="310.0">
+                           <children>
+                              <Button fx:id="btnHome" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="44.0" mnemonicParsing="false" onAction="#homePageOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Home">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCustomerList" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="104.0" mnemonicParsing="false" onAction="#customerListOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Customer List">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCustomerManage" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="164.0" mnemonicParsing="false" onAction="#CustomerOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Customer Manager">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnStaff" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="224.0" mnemonicParsing="false" onAction="#staffManageOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Staff Manage">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnItemManage" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#itemManageOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Item Manager">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnMealManage" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="344.0" mnemonicParsing="false" onAction="#mealManageOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Meal Manager">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnStoreItem" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="404.0" mnemonicParsing="false" onAction="#storeItemOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Store Item">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnPayment" alignment="BASELINE_LEFT" layoutX="110.0" layoutY="464.0" mnemonicParsing="false" onAction="#paymentOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Other Payment">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/homeb.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/customerb.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/addOne.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/employees.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/item.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/mealb.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/add.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="65.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/bill.png" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
+                     </children>
+                  </VBox>
+               </left>
+               <top>
+                  <AnchorPane prefHeight="100.0" prefWidth="1310.0" style="-fx-background-color: eeeeee;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="68.0" fitWidth="350.0" layoutX="486.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/image/photo_2022-04-07_07-01-30.jpg" />
+                           </image>
+                        </ImageView>
+                        <JFXButton fx:id="btnLogOut" alignment="CENTER_RIGHT" layoutX="1219.0" layoutY="44.0" onAction="#logOutOnAction" text="Log Out" textFill="#00a8ff" underline="true">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></JFXButton>
+                        <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1199.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons/logout.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1240.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons/userN.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+               </top>
+               <bottom>
+                  <AnchorPane prefHeight="75.0" prefWidth="1310.0" style="-fx-background-color: eeeeee;" BorderPane.alignment="CENTER" />
+               </bottom>
+               <right>
+                  <AnchorPane fx:id="MainContext" prefHeight="550.0" prefWidth="1000.0" style="-fx-background-color: eeeeee;" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="25.0" layoutY="315.0" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #44bd32; -fx-background-radius: 25;">
+                           <children>
+                              <Label layoutX="185.0" layoutY="20.0" text="Orders" textFill="WHITE" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalOrder" alignment="CENTER" layoutX="155.0" layoutY="58.0" prefHeight="30.0" prefWidth="140.0" text="0000" textFill="WHITE">
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/order.png" />
+                                 </image>
+                              </ImageView>
+                              <Separator layoutX="147.0" layoutY="10.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="680.0" layoutY="315.0" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #FFF700; -fx-background-radius: 25;" AnchorPane.rightAnchor="20.0">
+                           <children>
+                              <Label layoutX="163.0" layoutY="14.0" text="Customers" textFill="WHITE" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalCustomer" alignment="CENTER" layoutX="150.0" layoutY="51.0" prefHeight="30.0" prefWidth="140.0" text="0000" textFill="WHITE">
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="145.0" layoutY="16.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/customer.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="354.0" layoutY="315.0" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: red; -fx-background-radius: 25;">
+                           <children>
+                              <Label layoutX="188.0" layoutY="12.0" text="Meals" textFill="WHITE" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalMeals" alignment="CENTER" layoutX="147.0" layoutY="56.0" prefHeight="30.0" prefWidth="148.0" text="0000" textFill="WHITE">
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="140.0" layoutY="13.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/meal.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="680.0" layoutY="80.0" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #25CCF7; -fx-background-radius: 25;" AnchorPane.rightAnchor="20.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/calendar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lblTodayDate" alignment="CENTER" layoutX="170.0" layoutY="13.0" prefHeight="25.0" prefWidth="100.0" text="Monday" textFill="WHITE">
+                                 <font>
+                                    <Font name="Sarai" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblToday" alignment="CENTER" layoutX="170.0" layoutY="50.0" prefHeight="61.0" prefWidth="100.0" text="00" textFill="WHITE">
+                                 <font>
+                                    <Font size="50.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="141.0" layoutY="13.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="25.0" layoutY="80.0" onAction="#addOrderOnAction" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #3c40c6; -fx-background-radius: 25;" text=" " />
+                        <Separator layoutX="172.0" layoutY="92.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                        <Label layoutX="184.0" layoutY="105.0" text="+New" textFill="#f1f1f1">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="200.0" layoutY="143.0" text="Order" textFill="#f1f1f1">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="47.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons/addpackage.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="354.0" layoutY="80.0" prefHeight="125.0" prefWidth="300.0" style="-fx-background-color: #e84393; -fx-background-radius: 25;">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/icons/clock.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lblTodayTime" alignment="CENTER" layoutX="149.0" layoutY="32.0" prefHeight="61.0" prefWidth="150.0" text="00 : 00" textFill="WHITE">
+                                 <font>
+                                    <Font size="39.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="141.0" layoutY="13.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+               </right>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

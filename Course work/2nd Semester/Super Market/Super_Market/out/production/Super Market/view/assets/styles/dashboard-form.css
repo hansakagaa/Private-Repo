@@ -1,0 +1,18 @@
+*{
+    -fx-font-family: Ubuntu;
+}
+
+#imgEnter:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}
+
+#version{
+    -fx-font-style: italic;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, black, 1, 1.0, 0, 0);
+}
+
+#welcome{
+    -fx-font-size: 30;
+    -fx-effect: dropshadow(gaussian, white, 2, 1.0, 0, 0);
+}

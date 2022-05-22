@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomsFormController">
+   <children>
+      <ImageView fitHeight="700.0" fitWidth="1050.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@../assets/Pick01.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="850.0" layoutY="284.0" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #3498df;" text="    Add Room" textFill="WHITE" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane layoutX="862.0" layoutY="289.0" prefHeight="37.0" prefWidth="37.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+               <image>
+                  <Image url="@../assets/add(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
