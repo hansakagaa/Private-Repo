@@ -1,93 +1,93 @@
 package view.tm;
 
 public class CustomerTM {
-    private String custID;
-    private String custTitle;
-    private String custName;
-    private String custAddress;
-    private String custCity;
-    private String custProvince;
-    private String custPostalCode;
+    private String cstID;
+    private String cstTitle;
+    private String cstName;
+    private String cstAddress;
+    private String cstCity;
+    private String cstProvince;
+    private String cstPostalCode;
 
     public CustomerTM() {
     }
 
-    public CustomerTM(String custID, String custTitle, String custName, String custAddress, String custCity, String custProvince, String custPostalCode) {
-        this.custID = custID;
-        this.custTitle = custTitle;
-        this.custName = custName;
-        this.custAddress = custAddress;
-        this.custCity = custCity;
-        this.custProvince = custProvince;
-        this.custPostalCode = custPostalCode;
+    public CustomerTM(String cstID, String cstTitle, String cstName, String cstAddress, String cstCity, String cstProvince, String cstPostalCode) {
+        this.cstID = cstID;
+        this.cstTitle = cstTitle;
+        this.cstName = cstName;
+        this.cstAddress = cstAddress;
+        this.cstCity = cstCity;
+        this.cstProvince = cstProvince;
+        this.cstPostalCode = cstPostalCode;
     }
 
-    public String getCustID() {
-        return custID;
+    public String getCstID() {
+        return cstID;
     }
 
-    public void setCustID(String custID) {
-        this.custID = custID;
+    public void setCstID(String cstID) {
+        this.cstID = cstID;
     }
 
-    public String getCustTitle() {
-        return custTitle;
+    public String getCstTitle() {
+        return cstTitle;
     }
 
-    public void setCustTitle(String custTitle) {
-        this.custTitle = custTitle;
+    public void setCstTitle(String cstTitle) {
+        this.cstTitle = cstTitle;
     }
 
-    public String getCustName() {
-        return custName;
+    public String getCstName() {
+        return cstName;
     }
 
-    public void setCustName(String custName) {
-        this.custName = custName;
+    public void setCstName(String cstName) {
+        this.cstName = cstName;
     }
 
-    public String getCustAddress() {
-        return custAddress;
+    public String getCstAddress() {
+        return cstAddress;
     }
 
-    public void setCustAddress(String custAddress) {
-        this.custAddress = custAddress;
+    public void setCstAddress(String cstAddress) {
+        this.cstAddress = cstAddress;
     }
 
-    public String getCustCity() {
-        return custCity;
+    public String getCstCity() {
+        return cstCity;
     }
 
-    public void setCustCity(String custCity) {
-        this.custCity = custCity;
+    public void setCstCity(String cstCity) {
+        this.cstCity = cstCity;
     }
 
-    public String getCustProvince() {
-        return custProvince;
+    public String getCstProvince() {
+        return cstProvince;
     }
 
-    public void setCustProvince(String custProvince) {
-        this.custProvince = custProvince;
+    public void setCstProvince(String cstProvince) {
+        this.cstProvince = cstProvince;
     }
 
-    public String getCustPostalCode() {
-        return custPostalCode;
+    public String getCstPostalCode() {
+        return cstPostalCode;
     }
 
-    public void setCustPostalCode(String custPostalCode) {
-        this.custPostalCode = custPostalCode;
+    public void setCstPostalCode(String cstPostalCode) {
+        this.cstPostalCode = cstPostalCode;
     }
 
     @Override
     public String toString() {
         return "CustomerTM{" +
-                "custID='" + custID + '\'' +
-                ", custTitle='" + custTitle + '\'' +
-                ", custName='" + custName + '\'' +
-                ", custAddress='" + custAddress + '\'' +
-                ", custCity='" + custCity + '\'' +
-                ", custProvince='" + custProvince + '\'' +
-                ", custPostalCode='" + custPostalCode + '\'' +
+                "cstID='" + cstID + '\'' +
+                ", cstTitle='" + cstTitle + '\'' +
+                ", cstName='" + cstName + '\'' +
+                ", cstAddress='" + cstAddress + '\'' +
+                ", cstCity='" + cstCity + '\'' +
+                ", cstProvince='" + cstProvince + '\'' +
+                ", cstPostalCode='" + cstPostalCode + '\'' +
                 '}';
     }
 }

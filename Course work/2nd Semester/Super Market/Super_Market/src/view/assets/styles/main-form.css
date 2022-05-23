@@ -16,3 +16,12 @@
     -fx-font-size: 30;
     -fx-effect: dropshadow(gaussian, white, 2, 1.0, 0, 0);
 }
+
+#lbl{
+    -fx-font-size: 18;
+    -fx-effect: dropshadow(gaussian, white, 3, 1.0, 0, 0);
+}
+
+.mainFxmlClass {
+    -fx-background-color: white;
+}
