@@ -1,6 +1,6 @@
 package view.tm;
 
-public class CustomerTM {
+public class CustomerTM implements Comparable<CustomerTM> {
     private String cstID;
     private String cstTitle;
     private String cstName;
@@ -89,5 +89,10 @@ public class CustomerTM {
                 ", cstProvince='" + cstProvince + '\'' +
                 ", cstPostalCode='" + cstPostalCode + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(CustomerTM o) {
+        return cstID.compareTo(o.getCstID());
     }
 }

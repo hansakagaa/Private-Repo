@@ -21,6 +21,7 @@ public class CashierFormController {
     public AnchorPane root;
     public ImageView imgManageOrder;
     public ImageView imgMakeOrder;
+    public ImageView imgManageCustomer;
     public Label lblMenu;
     public Label lblDescription;
 
@@ -35,6 +36,9 @@ public class CashierFormController {
                     break;
                 case "imgManageOrder":
                     parent = FXMLLoader.load(this.getClass().getResource("/view/order-manage-form.fxml"));
+                    break;
+                case "imgManageCustomer":
+                    parent = FXMLLoader.load(this.getClass().getResource("/view/customer-manage-form.fxml"));
                     break;
             }
 
@@ -60,13 +64,18 @@ public class CashierFormController {
 
             switch (icon.getId()) {
                 case "imgMakeOrder":
-                lblMenu.setText("Make Customer Order");
-                lblDescription.setText("Click here if you want to place a new order");
-                break;
+                    lblMenu.setText("Make Customer Order");
+                    lblDescription.setText("Click here if you want to place a new order");
+                    break;
 
                 case "imgManageOrder":
                     lblMenu.setText("Manage Order Details");
                     lblDescription.setText("Click to search, edit, delete or view order");
+                    break;
+
+                case "imgManageCustomer":
+                    lblMenu.setText("Manage Customer Details");
+                    lblDescription.setText("Click to search, edit, delete or view Customer");
                     break;
             }
 

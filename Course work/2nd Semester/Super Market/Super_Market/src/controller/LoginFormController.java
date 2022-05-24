@@ -28,6 +28,10 @@ public class LoginFormController {
     public JFXPasswordField txtPassword;
     public JFXButton btnLogIn;
 
+    public void initialize(){
+        txtPassword.setOnAction(event -> btnLogIn.fire());
+    }
+
     @FXML
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
         Parent parent = null;

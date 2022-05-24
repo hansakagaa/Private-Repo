@@ -54,7 +54,7 @@
       <Separator layoutX="601.0" layoutY="205.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
       <JFXTextField fx:id="txtProvince" focusColor="#0652dd" labelFloat="true" layoutX="630.0" layoutY="205.0" prefHeight="26.0" prefWidth="170.0" promptText=" Province :" AnchorPane.rightAnchor="10.0" />
       <Separator layoutX="15.0" layoutY="272.0" prefHeight="0.0" prefWidth="500.0" />
-      <JFXButton id="btnUpdate" fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" layoutX="540.0" layoutY="260.0" onAction="#customerUpdateOnAction" text="Update">
+      <JFXButton id="btnUpdate" fx:id="btnSaveOrUpdate" alignment="CENTER" buttonType="RAISED" layoutX="540.0" layoutY="260.0" onAction="#customerSaveOrUpdateOnAction" text="Update">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -67,14 +67,13 @@
       </JFXButton>
       <TableView fx:id="tblCustomer" layoutX="10.0" layoutY="138.0" prefHeight="280.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="70.0" text="ID" />
+          <TableColumn prefWidth="100.0" text="ID" />
           <TableColumn prefWidth="140.0" text="Name" />
-          <TableColumn prefWidth="130.0" text="Address" />
+          <TableColumn prefWidth="140.0" text="Address" />
           <TableColumn prefWidth="100.0" text="Title" />
-          <TableColumn text="City" />
-          <TableColumn text="Province" />
+          <TableColumn prefWidth="100.0" text="City" />
+          <TableColumn prefWidth="100.0" text="Province" />
           <TableColumn prefWidth="100.0" text="Postal Code" />
-            <TableColumn text="Remove" />
         </columns>
       </TableView>
    </children>

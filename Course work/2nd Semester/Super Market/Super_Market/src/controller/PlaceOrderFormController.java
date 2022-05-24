@@ -53,11 +53,8 @@ public class PlaceOrderFormController {
 
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/administrator-form.fxml");
-        Parent root = FXMLLoader.load(resource);
-        Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/cashier-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
