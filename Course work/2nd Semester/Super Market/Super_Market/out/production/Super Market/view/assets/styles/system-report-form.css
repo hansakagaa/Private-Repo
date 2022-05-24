@@ -11,29 +11,13 @@
     -fx-effect: dropshadow(gaussian, white, 2, 1.0, 0, 0);
 }
 
-#root{
-    -fx-background-color: white;
-}
-
 #pane{
     -fx-background-color: #eeeeee;
     -fx-background-radius: 25;
 }
 
-#imgCustomer{
-    -fx-effect: dropshadow(gaussian, white, 5, 1.0, 0, 0);
-}
-
-#imgItem{
-    -fx-effect: dropshadow(gaussian, white, 5, 1.0, 0, 0)
-}
-
-#imgAddCart{
-    -fx-effect: dropshadow(gaussian, white, 5, 1.0, 0, 0)
-}
-
-#imgNewCustomer{
-    -fx-effect: dropshadow(gaussian, white, 5, 1.0, 0, 0)
+#root{
+    -fx-background-color: white;
 }
 
 #txt{
@@ -46,18 +30,9 @@
     -fx-effect: dropshadow(gaussian, white, 3, 1.0, 0, 0);
 }
 
-#btnSave{
-    -fx-font-size: 15;
-    -fx-font-weight: bold;
-    -fx-background-color: green;
-    -fx-text-fill: white;
-}
-
-#btnCancel{
-    -fx-font-size: 15;
-    -fx-font-weight: bold;
-    -fx-background-color: red;
-    -fx-text-fill: white;
+#date{
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 25;
 }
 
 .table-row-cell:selected{

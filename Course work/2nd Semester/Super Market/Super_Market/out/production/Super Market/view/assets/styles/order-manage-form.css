@@ -41,8 +41,16 @@
     -fx-text-fill: white;
     -fx-text-alignment: center;
 }
+
 #btnAdd{
     -fx-background-color: blue;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+}
+
+#btnDelete{
+    -fx-background-color: red;
     -fx-background-radius: 10;
     -fx-text-fill: white;
     -fx-text-alignment: center;

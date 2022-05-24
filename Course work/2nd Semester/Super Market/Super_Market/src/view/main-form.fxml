@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="root" prefHeight="400.0" prefWidth="500.0" stylesheets="@assets/styles/main-form.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+<AnchorPane id="root" fx:id="root" prefHeight="400.0" prefWidth="500.0" stylesheets="@assets/styles/main-form.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="500.0">
          <fill>
@@ -32,7 +32,7 @@
             <Image url="@assets/icons/sign-in.png" />
          </image>
       </ImageView>
-      <Label id="welcome" layoutX="181.0" layoutY="182.0" text="Welcome">
+      <Label id="welcome" alignment="CENTER" layoutY="182.0" prefWidth="500.0" text="Welcome">
          <font>
             <Font size="30.0" />
          </font>
@@ -44,7 +44,7 @@
          </font>
       </Label>
       <Separator layoutX="32.0" layoutY="82.0" prefWidth="200.0" />
-      <Label id="lbl" fx:id="lblTime" layoutX="60.0" layoutY="153.0" text=" 12 : 58 " />
-      <Label id="lbl" fx:id="lblDate" layoutX="32.0" layoutY="120.0" text=" 2022 - 06 - 59 " />
+      <Label id="lbl" fx:id="lblClock" layoutX="20.0" layoutY="120.0" text=" 2020 05 20   12 00 00 " />
+      <Label id="header" fx:id="lblHeader" alignment="CENTER" layoutY="221.0" prefWidth="500.0" text="System Main Form." />
    </children>
 </AnchorPane>

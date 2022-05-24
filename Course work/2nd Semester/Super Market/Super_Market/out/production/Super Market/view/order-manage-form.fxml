@@ -60,7 +60,7 @@
       <Label id="lbl" layoutX="432.0" layoutY="215.0" text="Order Details" />
       <Label id="lbl" layoutX="207.0" layoutY="225.0" text="Order Id :" />
       <Label id="lbl" fx:id="lblOrderId" layoutX="287.0" layoutY="225.0" text="O-0001" />
-       <TableView fx:id="tblOrderDetails" layoutX="182.0" layoutY="255.0" prefHeight="160.0" prefWidth="530.0">
+       <TableView fx:id="tblOrderDetails" layoutX="165.0" layoutY="255.0" prefHeight="160.0" prefWidth="530.0">
            <columns>
                <TableColumn prefWidth="100.0" text="Item Code" />
                <TableColumn prefWidth="130.0" text="Description" />
@@ -69,6 +69,7 @@
                <TableColumn prefWidth="100.0" text="Unit Price" />
            </columns>
        </TableView>
+      <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="700.0" layoutY="420.0" onAction="#deleteOrderOnAction" text="Delete Order" />
       <Label id="lbl" layoutX="298.0" layoutY="455.0" text="Item Details" />
       <Label id="lbl" layoutX="90.0" layoutY="465.0" text="Item Code :" />
       <Label id="lbl" fx:id="lblItemCode" layoutX="188.0" layoutY="465.0" text="I-0001" />
@@ -80,7 +81,7 @@
       <JFXTextField fx:id="txtOrderQty" labelFloat="true" layoutX="274.0" layoutY="584.0" onKeyPressed="#orderQtyKeyReleased" onKeyReleased="#orderQtyKeyReleased" prefHeight="26.0" prefWidth="150.0" promptText=" Qty :" style="-fx-background-radius: 25; -fx-background-color: #eeeeee;" unFocusColor="WHITE" />
       <JFXButton id="btnRemove" fx:id="btnRemove" layoutX="88.0" layoutY="630.0" onAction="#itemRemoveOnAction" text="Remove Item" />
       <JFXButton id="btnAdd" fx:id="btnAdd" layoutX="350.0" layoutY="630.0" onAction="#itemAddOnAction" prefHeight="25.0" prefWidth="97.0" text="Add Item" />
-      <AnchorPane id="pane" layoutX="502.0" layoutY="429.0" prefHeight="236.0" prefWidth="320.0">
+      <AnchorPane id="pane" layoutX="502.0" layoutY="454.0" prefHeight="236.0" prefWidth="320.0" AnchorPane.bottomAnchor="10.0">
          <children>
             <Label id="lbl" layoutX="38.0" layoutY="25.0" text="Pre Total :" />
             <JFXTextField id="txtPane" fx:id="txtPresTotal" alignment="CENTER" editable="false" labelFloat="true" layoutX="140.0" layoutY="25.0" unFocusColor="#eeeeee" />
