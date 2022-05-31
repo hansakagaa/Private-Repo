@@ -1,6 +1,6 @@
-package view.tm;
+package model;
 
-public class CustomerTM implements Comparable<CustomerTM> {
+public class CustomerDTO implements Comparable<CustomerDTO>{
     private String id;
     private String title;
     private String name;
@@ -9,10 +9,10 @@ public class CustomerTM implements Comparable<CustomerTM> {
     private String province;
     private String postalCode;
 
-    public CustomerTM() {
+    public CustomerDTO() {
     }
 
-    public CustomerTM(String id, String title, String name, String address, String city, String province, String postalCode) {
+    public CustomerDTO(String id, String title, String name, String address, String city, String province, String postalCode) {
         this.id = id;
         this.title = title;
         this.name = name;
@@ -79,20 +79,7 @@ public class CustomerTM implements Comparable<CustomerTM> {
     }
 
     @Override
-    public String toString() {
-        return "CustomerTM{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", province='" + province + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                '}';
-    }
-
-    @Override
-    public int compareTo(CustomerTM o) {
+    public int compareTo(CustomerDTO o) {
         return id.compareTo(o.getId());
     }
 }

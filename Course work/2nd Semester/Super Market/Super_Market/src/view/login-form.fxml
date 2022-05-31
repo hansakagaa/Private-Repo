@@ -46,13 +46,13 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField id="userName" fx:id="txtUserName" focusColor="#0994ff" labelFloat="true" layoutX="250.0" layoutY="105.0" prefHeight="26.0" prefWidth="170.0" promptText=" User Name :" unFocusColor="WHITE" />
+      <JFXTextField id="userName" fx:id="txtUserName" alignment="CENTER" focusColor="#0994ff" labelFloat="true" layoutX="250.0" layoutY="105.0" prefHeight="26.0" prefWidth="170.0" promptText=" User Name " text="cashier" unFocusColor="WHITE" />
       <Label layoutX="134.0" layoutY="155.0" prefHeight="26.0" prefWidth="101.0" text="Password  :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXPasswordField id="password" fx:id="txtPassword" focusColor="#078cf2" labelFloat="true" layoutX="250.0" layoutY="155.0" prefHeight="26.0" prefWidth="170.0" promptText=" Password :" unFocusColor="WHITE" />
+      <JFXPasswordField id="password" fx:id="txtPassword" alignment="CENTER" focusColor="#078cf2" labelFloat="true" layoutX="250.0" layoutY="155.0" prefHeight="26.0" prefWidth="170.0" promptText=" Password " text="1234" unFocusColor="WHITE" />
       <JFXButton id="logIn" fx:id="btnLogIn" alignment="CENTER" buttonType="RAISED" layoutX="150.0" layoutY="212.0" onAction="#loginOnAction" prefHeight="40.0" prefWidth="140.0" text="Login" textFill="#fffafa">
          <font>
             <Font name="System Bold" size="18.0" />

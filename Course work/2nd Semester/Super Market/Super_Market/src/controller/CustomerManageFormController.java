@@ -43,13 +43,15 @@ public class CustomerManageFormController {
 
     public void initialize() throws SQLException, ClassNotFoundException {
 //
-        tblCustomer.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("cstID"));
-        tblCustomer.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("cstName"));
-        tblCustomer.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("cstAddress"));
-        tblCustomer.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("cstTitle"));
-        tblCustomer.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("cstCity"));
-        tblCustomer.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("cstProvince"));
-        tblCustomer.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("cstPostalCode"));
+        tblCustomer.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblCustomer.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("title"));
+        tblCustomer.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblCustomer.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("address"));
+        tblCustomer.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("city"));
+        tblCustomer.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("province"));
+        tblCustomer.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("postalCode"));
+//
+        initialUi();
 //
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnDelete.setDisable(newValue == null);
@@ -57,27 +59,34 @@ public class CustomerManageFormController {
             btnSaveOrUpdate.setDisable(newValue == null);
 
             if (newValue != null) {
-                txtId.setText(newValue.getCstID());
-                txtName.setText(newValue.getCstName());
-                txtAddress.setText(newValue.getCstAddress());
-                txtTitle.setText(newValue.getCstTitle());
-                txtCity.setText(newValue.getCstCity());
-                txtProvince.setText(newValue.getCstProvince());
-                txtPostalCode.setText(newValue.getCstPostalCode());
+                txtId.setText(newValue.getId());
+                txtName.setText(newValue.getName());
+                txtAddress.setText(newValue.getAddress());
+                txtTitle.setText(newValue.getTitle());
+                txtCity.setText(newValue.getCity());
+                txtProvince.setText(newValue.getProvince());
+                txtPostalCode.setText(newValue.getPostalCode());
 
+                txtId.setDisable(false);
                 txtName.setDisable(false);
                 txtAddress.setDisable(false);
                 txtTitle.setDisable(false);
                 txtCity.setDisable(false);
                 txtProvince.setDisable(false);
                 txtPostalCode.setDisable(false);
+
             }
         });
-
+//
         loadAllCustomer();
-        initialUi();
-
+//
+        txtName.setOnAction(event -> txtAddress.requestFocus());
+        txtAddress.setOnAction(event -> txtTitle.requestFocus());
+        txtTitle.setOnAction(event -> txtPostalCode.requestFocus());
+        txtPostalCode.setOnAction(event -> txtCity.requestFocus());
+        txtCity.setOnAction(event -> txtProvince.requestFocus());
         txtProvince.setOnAction(event -> btnSaveOrUpdate.fire());
+//
     }
 //
     private void initialUi() {
@@ -99,7 +108,7 @@ public class CustomerManageFormController {
             Statement stm = connection.createStatement();
             ResultSet rst = stm.executeQuery("SELECT * FROM Customer");
             while (rst.next()) {
-                tblCustomer.getItems().add(new CustomerTM(rst.getString("cstID"), rst.getString("cstName"), rst.getString("cstAddress"), rst.getString("cstTitle"), rst.getString("cstCity"), rst.getString("cstProvince"), rst.getString("cstPostalCode")));
+                tblCustomer.getItems().add(new CustomerTM(rst.getString("id"),rst.getString("title"),rst.getString("name"),rst.getString("address"),rst.getString("city"),rst.getString("province"),rst.getString("postalCode")));
             }
         } catch (SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -112,14 +121,14 @@ public class CustomerManageFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/administrator-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/cashier-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 //
     @FXML
     public void newCustomerOnAction(ActionEvent actionEvent) {
-        txtId.setDisable(true);
+        txtId.setDisable(false);
         txtName.setDisable(false);
         txtAddress.setDisable(false);
         txtTitle.setDisable(false);
@@ -146,11 +155,11 @@ public class CustomerManageFormController {
     private String generateNewId() {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            ResultSet rst = connection.createStatement().executeQuery("SELECT cstId FROM Customer ORDER BY cstId DESC LIMIT 1;");
+            ResultSet rst = connection.createStatement().executeQuery("SELECT id FROM Customer ORDER BY id DESC LIMIT 1;");
             if (rst.next()) {
                 String id = rst.getString("id");
-                int newCustomerId = Integer.parseInt(id.replace("C-0", "")) + 1;
-                return String.format("C-0%03d", newCustomerId);
+                int newCustomerId = Integer.parseInt(id.replace("C-", "")) + 1;
+                return String.format("C-%04d", newCustomerId);
             } else {
                 return "C-0001";
             }
@@ -160,20 +169,19 @@ public class CustomerManageFormController {
             e.printStackTrace();
         }
 
-
         if (tblCustomer.getItems().isEmpty()) {
             return "C-0001";
         } else {
             String id = getLastCustomerId();
             int newCustomerId = Integer.parseInt(id.replace("C", "")) + 1;
-            return String.format("C-0%03d", newCustomerId);
+            return String.format("C-%04d", newCustomerId);
         }
     }
 //
     private String getLastCustomerId() {
         List<CustomerTM> tempCustomersList = new ArrayList<>(tblCustomer.getItems());
         Collections.sort(tempCustomersList);
-        return tempCustomersList.get(tempCustomersList.size() - 1).getCstID();
+        return tempCustomersList.get(tempCustomersList.size() - 1).getId();
     }
 //
     @FXML
@@ -188,27 +196,27 @@ public class CustomerManageFormController {
 
         if (!name.matches("^[A-z ]{3,6}$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid name. (3-6) characters only.").show();
-            txtName.requestFocus();
+            txtName.requestFocus();txtName.selectAll();
             return;
         } else if (!address.matches("^[A-z \\d]{5,30}$")) {
             new Alert(Alert.AlertType.ERROR, "Address should be at (5-30) A-z characters only").show();
-            txtAddress.requestFocus();
+            txtAddress.requestFocus();txtAddress.selectAll();
             return;
         } else if (!title.matches("^[A-z \\d]{3,5}$")) {
             new Alert(Alert.AlertType.ERROR, "Title should be at (3-5) characters only").show();
-            txtAddress.requestFocus();
+            txtTitle.requestFocus();txtTitle.selectAll();
             return;
         } else if (!city.matches("^[A-z \\d]{5,20}$")) {
             new Alert(Alert.AlertType.ERROR, "City should be at (5-20) A-z characters only").show();
-            txtAddress.requestFocus();
+            txtCity.requestFocus();txtCity.selectAll();
             return;
         } else if (!province.matches("^[A-z \\d]{5,20}$")) {
             new Alert(Alert.AlertType.ERROR, "Province should be at (5-20) A-z characters only").show();
-            txtAddress.requestFocus();
+            txtProvince.requestFocus();txtProvince.selectAll();
             return;
         } else if (!postalCode.matches("^[A-z \\d]{5,9}$")) {
             new Alert(Alert.AlertType.ERROR, "Postal Code should be at (5-9) characters only").show();
-            txtAddress.requestFocus();
+            txtPostalCode.requestFocus();txtPostalCode.selectAll();
             return;
         }
 
@@ -243,7 +251,7 @@ public class CustomerManageFormController {
                     new Alert(Alert.AlertType.ERROR, "There is no such customer associated with the id " + id).show();
                 }
                 Connection connection = DBConnection.getInstance().getConnection();
-                PreparedStatement pStm = connection.prepareStatement("UPDATE Customer SET cstTitle=?, cstName=?, cstAddress=?, city=?,  province=?, postalCode=? WHERE cstID=?");
+                PreparedStatement pStm = connection.prepareStatement("UPDATE Customer SET title=?, name=?, address=?, city=?,  province=?, postalCode=? WHERE id=?");
                 pStm.setString(1, title);
                 pStm.setString(2, name);
                 pStm.setString(3, address);
@@ -259,12 +267,12 @@ public class CustomerManageFormController {
             }
 
             CustomerTM selectedCustomer = tblCustomer.getSelectionModel().getSelectedItem();
-            selectedCustomer.setCstTitle(title);
-            selectedCustomer.setCstName(name);
-            selectedCustomer.setCstAddress(address);
-            selectedCustomer.setCstCity(city);
-            selectedCustomer.setCstProvince(province);
-            selectedCustomer.setCstPostalCode(postalCode);
+            selectedCustomer.setTitle(title);
+            selectedCustomer.setName(name);
+            selectedCustomer.setAddress(address);
+            selectedCustomer.setCity(city);
+            selectedCustomer.setProvince(province);
+            selectedCustomer.setPostalCode(postalCode);
             tblCustomer.refresh();
         }
         btnNew.fire();
@@ -273,13 +281,13 @@ public class CustomerManageFormController {
     @FXML
     public void customerRemoveOnAction(ActionEvent actionEvent) {
         /*Delete Customer*/
-        String id = tblCustomer.getSelectionModel().getSelectedItem().getCstID();
+        String id = tblCustomer.getSelectionModel().getSelectedItem().getId();
         try {
             if (!existCustomer(id)) {
                 new Alert(Alert.AlertType.ERROR, "There is no such customer associated with the id " + id).show();
             }
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Customer WHERE cstId=?");
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Customer WHERE id=?");
             pstm.setString(1, id);
             pstm.executeUpdate();
 
@@ -296,7 +304,7 @@ public class CustomerManageFormController {
 //
     boolean existCustomer(String id) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnection();
-        PreparedStatement pStm = connection.prepareStatement("SELECT cstId FROM Customer WHERE cstId=?");
+        PreparedStatement pStm = connection.prepareStatement("SELECT id FROM Customer WHERE id=?");
         pStm.setString(1, id);
         return pStm.executeQuery().next();
     }

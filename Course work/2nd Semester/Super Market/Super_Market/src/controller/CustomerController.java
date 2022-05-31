@@ -2,7 +2,7 @@ package controller;
 
 import db.DBConnection;
 import javafx.scene.control.Alert;
-import model.Customer;
+import model.CustomerDTO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,13 +12,13 @@ import java.util.List;
 
 public class CustomerController {
 
-    public ArrayList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
+    public ArrayList<CustomerDTO> getAllCustomer() throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(
                 "SELECT * FROM `Customer`");
         ResultSet rst = stm.executeQuery();
-        ArrayList<Customer> customers = new ArrayList<>();
+        ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
         while (rst.next()) {
-            customers.add(new Customer(
+            customerDTOS.add(new CustomerDTO(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
@@ -28,7 +28,7 @@ public class CustomerController {
                     rst.getString(7)
             ));
         }
-        return customers;
+        return customerDTOS;
     }
 
     public List<String> getCustomerIds() throws SQLException, ClassNotFoundException {
@@ -81,13 +81,13 @@ public class CustomerController {
 //        return stm.executeUpdate() > 0;
 //    }
 
-    public Customer getCustomer(String id) throws SQLException, ClassNotFoundException {
+    public CustomerDTO getCustomer(String id) throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(
                 "SELECT * FROM `Customer` WHERE CustID=?");
         stm.setObject(1, id);
         ResultSet rst = stm.executeQuery();
         if (rst.next()) {
-            return new Customer(
+            return new CustomerDTO(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),

@@ -37,9 +37,9 @@
            </font>
        </Label>
       <Label id="lbl" layoutX="35.0" layoutY="115.0" text="Select Date :" />
-      <JFXDatePicker id="date" fx:id="startDate" defaultColor="#3cf482" editable="false" layoutX="158.0" layoutY="113.0" prefHeight="25.0" prefWidth="150.0" promptText=" Start Date" showWeekNumbers="true" />
+      <JFXDatePicker id="date" fx:id="startDate" defaultColor="#3cf482" editable="false" layoutX="158.0" layoutY="113.0" onAction="#selectDateOnAction" prefHeight="25.0" prefWidth="150.0" promptText=" Start Date" showWeekNumbers="true" />
       <Separator layoutX="319.0" layoutY="106.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="0.0" />
-      <JFXDatePicker id="date" fx:id="endDate" defaultColor="#3cf482" editable="false" layoutX="338.0" layoutY="113.0" prefHeight="25.0" prefWidth="150.0" promptText=" End Date" showWeekNumbers="true" />
+      <JFXDatePicker id="date" fx:id="endDate" defaultColor="#3cf482" editable="false" layoutX="338.0" layoutY="113.0" onAction="#selectDateOnAction" prefHeight="25.0" prefWidth="150.0" promptText=" End Date" showWeekNumbers="true" />
       <AnchorPane id="pane" layoutX="515.0" layoutY="106.0" prefHeight="170.0" prefWidth="250.0">
          <children>
             <Label id="lbl" layoutX="72.0" layoutY="10.0" text="Total Income" />
@@ -51,13 +51,13 @@
       </AnchorPane>
       <Separator layoutX="500.0" layoutY="290.0" prefWidth="250.0" />
       <Separator layoutX="35.0" layoutY="156.0" prefHeight="0.0" prefWidth="420.0" />
-      <Label id="lbl" fx:id="lblBanner" alignment="CENTER" graphicTextGap="0.0" layoutX="150.0" layoutY="170.0" text="Select Movable Item" textAlignment="CENTER" />
-      <ImageView id="imgMostItem" fitHeight="60.0" fitWidth="60.0" layoutX="98.0" layoutY="215.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <Label id="lbl" fx:id="lblBanner" alignment="CENTER" graphicTextGap="0.0" layoutX="35.0" layoutY="170.0" prefWidth="420.0" text="Select Movable Item" textAlignment="CENTER" />
+      <ImageView id="imgMostItem" fx:id="imgMostItem" fitHeight="60.0" fitWidth="60.0" layoutX="98.0" layoutY="215.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons/most-item.png" />
          </image>
       </ImageView>
-      <ImageView id="imgLeastItem" fitHeight="60.0" fitWidth="60.0" layoutX="298.0" layoutY="215.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="imgLeastItem" fx:id="imgLeastItem" fitHeight="60.0" fitWidth="60.0" layoutX="298.0" layoutY="215.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons/least-item.png" />
          </image>

@@ -2,7 +2,7 @@ package view.tm;
 
 public class OrderTM {
     private String orderID;
-    private String custID;
+    private String cstID;
     private String orderDate;
     private String itemCode;
     private int qtyForSell;
@@ -11,9 +11,13 @@ public class OrderTM {
     public OrderTM() {
     }
 
-    public OrderTM(String orderID, String custID, String orderDate, String itemCode, int qtyForSell, double discount) {
+    public OrderTM(String orderID) {
         this.orderID = orderID;
-        this.custID = custID;
+    }
+
+    public OrderTM(String orderID, String cstID, String orderDate, String itemCode, int qtyForSell, double discount) {
+        this.orderID = orderID;
+        this.cstID = cstID;
         this.orderDate = orderDate;
         this.itemCode = itemCode;
         this.qtyForSell = qtyForSell;
@@ -28,12 +32,12 @@ public class OrderTM {
         this.orderID = orderID;
     }
 
-    public String getCustID() {
-        return custID;
+    public String getCstID() {
+        return cstID;
     }
 
-    public void setCustID(String custID) {
-        this.custID = custID;
+    public void setCstID(String cstID) {
+        this.cstID = cstID;
     }
 
     public String getOrderDate() {
@@ -72,7 +76,7 @@ public class OrderTM {
     public String toString() {
         return "OrderTM{" +
                 "orderID='" + orderID + '\'' +
-                ", custID='" + custID + '\'' +
+                ", custID='" + cstID + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", itemCode='" + itemCode + '\'' +
                 ", qtyForSell=" + qtyForSell +

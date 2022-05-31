@@ -40,7 +40,7 @@
       <AnchorPane id="pane" layoutX="25.0" layoutY="115.0" prefHeight="100.0" prefWidth="1050.0">
          <children>
             <JFXTextField id="txt" fx:id="txtId" alignment="CENTER" editable="false" focusColor="#0652dd" labelFloat="true" layoutX="20.0" layoutY="15.0" prefHeight="26.0" prefWidth="140.0" promptText=" Customer Id :" unFocusColor="#eeeeee" />
-            <ComboBox id="txt" fx:id="cmdCustomerId" layoutX="20.0" layoutY="15.0" prefHeight="26.0" prefWidth="140.0" promptText=" Customer Id :" />
+            <ComboBox id="txt" fx:id="cmbCustomerId" layoutX="20.0" layoutY="15.0" prefHeight="26.0" prefWidth="140.0" promptText=" Customer Id :" />
             <Separator layoutX="175.0" layoutY="14.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
             <JFXTextField id="txt" fx:id="txtName" focusColor="#0652dd" labelFloat="true" layoutX="196.0" layoutY="15.0" prefHeight="26.0" prefWidth="290.0" promptText=" Customer Name :" unFocusColor="#eeeeee" />
             <Separator layoutX="499.0" layoutY="14.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
@@ -57,7 +57,7 @@
                   <Image url="@assets/icons/customer-icon.png" />
                </image>
             </ImageView>
-            <ImageView id="imgNewCustomer" fitHeight="45.0" fitWidth="45.0" layoutX="984.0" layoutY="9.0" onMouseClicked="#navigateToNewCustomer" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgNewCustomer" fx:id="imgNewCustomer" fitHeight="45.0" fitWidth="45.0" layoutX="984.0" layoutY="9.0" onMouseClicked="#navigateToNewCustomer" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/icons/add-icon.png" />
                </image>
@@ -66,7 +66,7 @@
       </AnchorPane>
       <AnchorPane id="pane" layoutX="25.0" layoutY="235.0" prefHeight="100.0" prefWidth="1050.0">
          <children>
-            <ComboBox id="txt" fx:id="cmdItemCode" layoutX="30.0" layoutY="15.0" prefHeight="26.0" prefWidth="150.0" promptText=" Item Code :" />
+            <ComboBox id="txt" fx:id="cmbItemCode" layoutX="30.0" layoutY="15.0" prefHeight="26.0" prefWidth="150.0" promptText=" Item Code :" />
             <Separator layoutX="199.0" layoutY="14.0" orientation="VERTICAL" prefHeight="30.0" />
             <JFXTextField id="txt" fx:id="txtDescription" alignment="CENTER" editable="false" focusColor="#0652dd" labelFloat="true" layoutX="225.0" layoutY="15.0" prefHeight="26.0" prefWidth="250.0" promptText=" Description" unFocusColor="#eeeeee" />
             <Separator layoutX="501.0" layoutY="14.0" orientation="VERTICAL" prefHeight="30.0" />
@@ -75,10 +75,10 @@
             <Separator layoutX="251.0" layoutY="55.0" orientation="VERTICAL" prefHeight="30.0" />
             <JFXTextField id="txt" fx:id="txtQtyOnHand" alignment="CENTER" editable="false" focusColor="#0652dd" labelFloat="true" layoutX="275.0" layoutY="56.0" prefHeight="26.0" prefWidth="200.0" promptText=" Qty On Hand " unFocusColor="#eeeeee" />
             <Separator layoutX="501.0" layoutY="55.0" orientation="VERTICAL" prefHeight="30.0" />
-            <JFXTextField id="txt" fx:id="txtOrderQty" focusColor="#0652dd" labelFloat="true" layoutX="530.0" layoutY="56.0" onKeyPressed="#orderQtyKeyReleased" onKeyReleased="#orderQtyKeyReleased" prefHeight="26.0" prefWidth="150.0" promptText=" Qty :" unFocusColor="#eeeeee" />
+            <JFXTextField id="txt" fx:id="txtOrderQty" focusColor="#0652dd" labelFloat="true" layoutX="530.0" layoutY="56.0" onKeyReleased="#orderQtyKeyReleased" prefHeight="26.0" prefWidth="150.0" promptText=" Qty :" unFocusColor="#eeeeee" />
             <Separator layoutX="694.0" layoutY="4.0" orientation="VERTICAL" prefHeight="80.0" />
             <Separator layoutX="699.0" layoutY="4.0" orientation="VERTICAL" prefHeight="80.0" />
-            <ImageView id="imgAddCart" fitHeight="60.0" fitWidth="60.0" layoutX="757.0" layoutY="20.0" onMouseClicked="#navigateToAddCart" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgAddCart" fx:id="imgAddCart" fitHeight="60.0" fitWidth="60.0" layoutX="757.0" layoutY="20.0" onMouseClicked="#navigateToAddCart" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/icons/cart-add-icon.png" />
                </image>
@@ -105,13 +105,13 @@
          <children>
             <Label id="lbl" fx:id="lblDate" layoutX="20.0" layoutY="25.0" text=" 2021 : 05 : 21 " />
             <Label id="lbl" layoutX="160.0" layoutY="25.0" text="Order Id :" />
-            <Label id="lbl" layoutX="240.0" layoutY="25.0" text="O-0001" />
+            <Label id="lbl" fx:id="lblOrderId" layoutX="240.0" layoutY="25.0" text="O-0001" />
             <Separator layoutX="60.0" layoutY="61.0" prefWidth="200.0" />
             <Label id="lbl" layoutX="60.0" layoutY="80.0" text=" Total :" />
             <JFXTextField id="txt" fx:id="txtTotal" alignment="CENTER" editable="false" labelFloat="true" layoutX="140.0" layoutY="80.0" unFocusColor="#eeeeee" />
             <Label id="lbl" layoutX="30.0" layoutY="120.0" text=" Discount :" />
             <JFXTextField id="txt" fx:id="txtDiscount" alignment="CENTER" editable="false" labelFloat="true" layoutX="140.0" layoutY="120.0" unFocusColor="#eeeeee" />
-            <JFXTextField id="txt" fx:id="txtCash" alignment="CENTER" labelFloat="true" layoutX="16.0" layoutY="178.0" onKeyPressed="#cashBalanceKeyReleased" onKeyReleased="#cashBalanceKeyReleased" prefWidth="125.0" promptText="Cash" unFocusColor="#eeeeee" />
+            <JFXTextField id="txt" fx:id="txtCash" alignment="CENTER" labelFloat="true" layoutX="16.0" layoutY="178.0" onKeyReleased="#cashBalanceKeyReleased" prefWidth="125.0" promptText="Cash" unFocusColor="#eeeeee" />
             <Separator layoutX="160.0" layoutY="165.0" orientation="VERTICAL" prefHeight="50.0" />
             <JFXTextField id="txt" fx:id="txtBalance" alignment="CENTER" editable="false" labelFloat="true" layoutX="178.0" layoutY="178.0" prefWidth="125.0" promptText="Balance" unFocusColor="#eeeeee" />
             <JFXButton id="btnCancel" fx:id="btnCancel" layoutX="20.0" layoutY="240.0" onAction="#cancelOrderOnAction" prefHeight="40.0" prefWidth="110.0" text="Cancel Order" />

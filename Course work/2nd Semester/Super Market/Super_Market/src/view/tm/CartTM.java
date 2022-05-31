@@ -1,25 +1,28 @@
 package view.tm;
 
-public class CartTM {
+import java.math.BigDecimal;
+
+public class CartTM{
     private String itemCode;
     private String description;
     private String packSize;
     private int orderQty;
-    private Double unitPrice;
-    private Double total;
+    private BigDecimal unitPrice;
+    private BigDecimal total;
 
     public CartTM() {
     }
 
-    public CartTM(String itemCode, String description, String packSize, int orderQty, Double unitPrice) {
+    public CartTM(String itemCode, String description, String packSize, BigDecimal unitPrice, int orderQty, BigDecimal total) {
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
         this.orderQty = orderQty;
         this.unitPrice = unitPrice;
+        this.total = total;
     }
 
-    public CartTM(String itemCode, String description, String packSize, int orderQty, Double unitPrice, Double total) {
+        public CartTM(String itemCode, String description, String packSize, int orderQty, BigDecimal unitPrice, BigDecimal total) {
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
@@ -60,19 +63,19 @@ public class CartTM {
         this.orderQty = orderQty;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public Double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
@@ -87,4 +90,5 @@ public class CartTM {
                 ", total=" + total +
                 '}';
     }
+
 }

@@ -42,7 +42,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox id="txt" fx:id="cmdCustomerId" layoutX="222.0" layoutY="125.0" prefWidth="150.0" />
+      <ComboBox id="txt" fx:id="cmbCustomerId" layoutX="222.0" layoutY="125.0" prefWidth="150.0" promptText=" Customer Id :" />
       <JFXTextField id="txt" fx:id="txtName" editable="false" labelFloat="true" layoutX="405.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" promptText="Name" unFocusColor="WHITE" />
       <JFXTextField id="txt" fx:id="txtAddress" editable="false" labelFloat="true" layoutX="575.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" promptText="Address" unFocusColor="WHITE" />
       <TableView fx:id="tblOrderId" layoutX="32.0" layoutY="165.0" prefHeight="274.0" prefWidth="100.0">
@@ -50,7 +50,7 @@
           <TableColumn prefWidth="100.0" text="Order No" />
         </columns>
       </TableView>
-      <JFXTextField alignment="CENTER" labelFloat="true" layoutX="292.0" layoutY="165.0" onKeyPressed="#orderSearchKeyReleased" onKeyReleased="#orderSearchKeyReleased" prefHeight="30.0" prefWidth="230.0" promptText=" Search Order " style="-fx-background-color: #eeeeee;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtOrderId" alignment="CENTER" labelFloat="true" layoutX="292.0" layoutY="165.0" prefHeight="30.0" prefWidth="230.0" promptText=" Search Order " style="-fx-background-color: #eeeeee;" unFocusColor="WHITE" />
       <ImageView id="imgSearch" fitHeight="25.0" fitWidth="25.0" layoutX="497.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons/search-icon.png" />
@@ -60,16 +60,17 @@
       <Label id="lbl" layoutX="432.0" layoutY="215.0" text="Order Details" />
       <Label id="lbl" layoutX="207.0" layoutY="225.0" text="Order Id :" />
       <Label id="lbl" fx:id="lblOrderId" layoutX="287.0" layoutY="225.0" text="O-0001" />
-       <TableView fx:id="tblOrderDetails" layoutX="165.0" layoutY="255.0" prefHeight="160.0" prefWidth="530.0">
+       <TableView fx:id="tblOrderDetails" layoutX="165.0" layoutY="255.0" prefHeight="140.0" prefWidth="630.0">
            <columns>
                <TableColumn prefWidth="100.0" text="Item Code" />
                <TableColumn prefWidth="130.0" text="Description" />
                <TableColumn prefWidth="100.0" text="Pack Size" />
-               <TableColumn prefWidth="100.0" text="Order Qty" />
                <TableColumn prefWidth="100.0" text="Unit Price" />
+               <TableColumn prefWidth="100.0" text="Qty On Hand " />
+            <TableColumn prefWidth="100.0" text="Order Qty " />
            </columns>
        </TableView>
-      <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="700.0" layoutY="420.0" onAction="#deleteOrderOnAction" text="Delete Order" />
+      <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="735.0" layoutY="410.0" onAction="#deleteOrderOnAction" text="Delete Order" />
       <Label id="lbl" layoutX="298.0" layoutY="455.0" text="Item Details" />
       <Label id="lbl" layoutX="90.0" layoutY="465.0" text="Item Code :" />
       <Label id="lbl" fx:id="lblItemCode" layoutX="188.0" layoutY="465.0" text="I-0001" />

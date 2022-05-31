@@ -1,23 +1,34 @@
 package view.tm;
 
-import java.util.Objects;
+import java.math.BigDecimal;
 
-public class ItemTM {
+
+public class ItemTM implements Comparable<ItemTM>{
     private String itemCode;
     private String description;
     private String packSize;
-    private Double unitPrice;
+    private BigDecimal unitPrice;
     private int qtyOnHand;
+    private int orderQty;
 
     public ItemTM() {
     }
 
-    public ItemTM(String itemCode, String description, String packSize, Double unitPrice, int qtyOnHand) {
+    public ItemTM(String itemCode, String description, String packSize, BigDecimal unitPrice, int qtyOnHand) {
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
         this.unitPrice = unitPrice;
         this.qtyOnHand = qtyOnHand;
+    }
+
+    public ItemTM(String itemCode, String description, String packSize, BigDecimal unitPrice, int qtyOnHand, int orderQty) {
+        this.itemCode = itemCode;
+        this.description = description;
+        this.packSize = packSize;
+        this.unitPrice = unitPrice;
+        this.qtyOnHand = qtyOnHand;
+        this.orderQty = orderQty;
     }
 
     public String getItemCode() {
@@ -44,11 +55,11 @@ public class ItemTM {
         this.packSize = packSize;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -60,6 +71,14 @@ public class ItemTM {
         this.qtyOnHand = qtyOnHand;
     }
 
+    public int getOrderQty() {
+        return orderQty;
+    }
+
+    public void setOrderQty(int orderQty) {
+        this.orderQty = orderQty;
+    }
+
     @Override
     public String toString() {
         return "ItemTM{" +
@@ -68,19 +87,12 @@ public class ItemTM {
                 ", packSize='" + packSize + '\'' +
                 ", unitPrice=" + unitPrice +
                 ", qtyOnHand=" + qtyOnHand +
+                ", orderQty=" + orderQty +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ItemTM itemTM = (ItemTM) o;
-        return Objects.equals(itemCode, itemTM.itemCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(itemCode);
+    public int compareTo(ItemTM  o) {
+        return itemCode.compareTo(o.getItemCode());
     }
 }

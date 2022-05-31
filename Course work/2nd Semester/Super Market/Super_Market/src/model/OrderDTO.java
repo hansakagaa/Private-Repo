@@ -1,16 +1,16 @@
 package model;
 
-import java.util.ArrayList;
+import java.sql.Date;
 
-public class Order {
+public class OrderDTO {
     private String orderID;
-    private String orderDate;
+    private Date orderDate;
     private String cstID;
 
-    public Order() {
+    public OrderDTO() {
     }
 
-    public Order(String orderID, String orderDate, String cstID) {
+    public OrderDTO(String orderID, Date orderDate, String cstID) {
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.cstID = cstID;
@@ -32,11 +32,11 @@ public class Order {
         this.cstID = cstID;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

@@ -41,7 +41,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtId" focusColor="#0652dd" labelFloat="true" layoutX="13.0" layoutY="155.0" prefHeight="26.0" prefWidth="125.0" promptText=" Customer Id :" />
+      <JFXTextField fx:id="txtId" focusColor="#0652dd" editable="false" labelFloat="true" layoutX="13.0" layoutY="155.0" prefHeight="26.0" prefWidth="125.0" promptText=" Customer Id :" />
       <Separator layoutX="149.0" layoutY="155.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
       <JFXTextField fx:id="txtName" focusColor="#0652dd" labelFloat="true" layoutX="175.0" layoutY="155.0" prefHeight="26.0" prefWidth="300.0" promptText=" Name :" AnchorPane.rightAnchor="335.0" />
       <Separator layoutX="474.0" layoutY="155.0" orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
@@ -68,9 +68,9 @@
       <TableView fx:id="tblCustomer" layoutX="10.0" layoutY="138.0" prefHeight="280.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columns>
           <TableColumn prefWidth="100.0" text="ID" />
-          <TableColumn prefWidth="140.0" text="Name" />
+           <TableColumn prefWidth="100.0" text="Title" />
+           <TableColumn prefWidth="140.0" text="Name" />
           <TableColumn prefWidth="140.0" text="Address" />
-          <TableColumn prefWidth="100.0" text="Title" />
           <TableColumn prefWidth="100.0" text="City" />
           <TableColumn prefWidth="100.0" text="Province" />
           <TableColumn prefWidth="100.0" text="Postal Code" />

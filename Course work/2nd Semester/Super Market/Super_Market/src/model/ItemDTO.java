@@ -1,18 +1,19 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Item {
+public class ItemDTO {
     private String itemCode;
     private String description;
     private String packSize;
-    private Double unitPrice;
+    private BigDecimal unitPrice;
     private int qtyOnHand;
 
-    public Item() {
+    public ItemDTO() {
     }
 
-    public Item(String itemCode, String description, String packSize, Double unitPrice, int qtyOnHand) {
+    public ItemDTO(String itemCode, String description, String packSize, BigDecimal unitPrice, int qtyOnHand) {
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
@@ -44,11 +45,11 @@ public class Item {
         this.packSize = packSize;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -69,18 +70,5 @@ public class Item {
                 ", unitPrice=" + unitPrice +
                 ", qtyOnHand=" + qtyOnHand +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(itemCode, item.itemCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(itemCode);
     }
 }

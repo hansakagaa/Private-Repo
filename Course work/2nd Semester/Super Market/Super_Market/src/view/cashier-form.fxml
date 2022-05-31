@@ -28,7 +28,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <ImageView id="imgManageOrder" fx:id="imgManageOrder" fitHeight="80.0" fitWidth="80.0" layoutX="260.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="260.0">
+        <ImageView id="imgManageOrder" fx:id="imgManageOrder" fitHeight="80.0" fitWidth="80.0" layoutX="260.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@assets/icons/manage-order.png" />
             </image>
@@ -47,7 +47,7 @@
                 <Font name="Ubuntu" size="12.0" />
             </font>
         </Label>
-      <ImageView id="imgManageCustomer" fx:id="imgManageCustomer" fitHeight="80.0" fitWidth="80.0" layoutX="430.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="90.0">
+      <ImageView id="imgManageCustomer" fx:id="imgManageCustomer" fitHeight="80.0" fitWidth="80.0" layoutX="430.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons/manage-order.png" />
          </image>

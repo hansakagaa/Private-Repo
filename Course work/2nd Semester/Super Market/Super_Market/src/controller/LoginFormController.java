@@ -29,6 +29,7 @@ public class LoginFormController {
     public JFXButton btnLogIn;
 
     public void initialize(){
+        txtUserName.setOnAction(event -> txtPassword.requestFocus());
         txtPassword.setOnAction(event -> btnLogIn.fire());
     }
 

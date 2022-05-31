@@ -1,18 +1,20 @@
 package model;
 
-public class OrderDetails {
+import java.math.BigDecimal;
+
+public class OrderDetailsDTO {
     private String orderID;
     private String itemCode;
     private int OrderQty;
-    private double discount;
+    private BigDecimal discount;
 
-    public OrderDetails() {
+    public OrderDetailsDTO() {
     }
 
-    public OrderDetails(String orderID, String itemCode, int orderQty, double discount) {
+    public OrderDetailsDTO(String orderID, String itemCode, int orderQty, BigDecimal discount) {
         this.orderID = orderID;
         this.itemCode = itemCode;
-        OrderQty = orderQty;
+        this.OrderQty = orderQty;
         this.discount = discount;
     }
 
@@ -40,11 +42,11 @@ public class OrderDetails {
         OrderQty = orderQty;
     }
 
-    public double getDiscount() {
+    public BigDecimal getDiscount() {
         return discount;
     }
 
-    public void setDiscount(double discount) {
+    public void setDiscount(BigDecimal discount) {
         this.discount = discount;
     }
 
