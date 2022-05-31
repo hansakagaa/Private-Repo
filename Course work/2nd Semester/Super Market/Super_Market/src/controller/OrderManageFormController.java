@@ -61,7 +61,6 @@ public class OrderManageFormController {
     public TableView<OrderTM> tblOrderId;
     public TableView<ItemTM> tblOrderDetails;
 
-
     public void  initialize(){
 //
         tblOrderDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("itemCode"));
@@ -73,12 +72,23 @@ public class OrderManageFormController {
 
         tblOrderId.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("orderID"));
 //
+        initialItem(true);
+        tblOrderId.setDisable(true);
+        tblOrderDetails.setDisable(true);
         lblItemCode.setText("");
         lblOrderId.setText("");
+        btnDelete.setDisable(true);
+//
+        loadAllCustomerIds();
 //
         cmbCustomerId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, customerId) -> {
-            //  enableOrDisablePlaceOrderButton();
+            //  enableOrDisableSaveButton();
             if (customerId != null) {
+                tblOrderId.setDisable(false);
+                tblOrderDetails.setDisable(true);
+                tblOrderDetails.getItems().clear();
+                initialItem();
+                initialItem(true);
                 try {
                     /*Search Customer*/
                     Connection connection = DBConnection.getInstance().getConnection();
@@ -103,24 +113,41 @@ public class OrderManageFormController {
                     e.printStackTrace();
                 }
             } else {
+                tblOrderId.setDisable(true);
+                tblOrderDetails.getItems().clear();
+                tblOrderDetails.setDisable(true);
                 txtName.clear();
                 txtAddress.clear();
+                initialItem(true);
+                initialItem();
             }
         });
 //
-        loadAllCustomerIds();
-//
         tblOrderId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, orders) -> {
             if (orders != null) {
+                initialItem();
+                initialItem(true);
+                tblOrderDetails.setDisable(false);
                 lblOrderId.setText(orders.getOrderID());
                 txtOrderId.setText(orders.getOrderID());
                 loadAllItems(orders.getOrderID());
+                btnDelete.setDisable(false);
                 txtPresTotal.setText(String.valueOf(calculateAllTotal()));
+            }else {
+                tblOrderDetails.setDisable(true);
+                initialItem();
+                initialItem(true);
+                btnDelete.setDisable(true);
+                txtNewTotal.clear();
+                txtPresTotal.clear();
+                txtCash.clear();
+                txtBalance.clear();
             }
         });
 //
         tblOrderDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, item) -> {
             if(item != null){
+                initialItem(false);
                 lblItemCode.setText(item.getItemCode());
                 txtDescription.setText(item.getDescription());
                 txtPackSize.setText(item.getPackSize());
@@ -128,12 +155,49 @@ public class OrderManageFormController {
                 txtQtyOnHand.setText(item.getQtyOnHand()+"");
                 txtOrderQty.setText(item.getOrderQty()+"");
                 calculateItemTotal();
+
+            }else {
+                initialItem(true);
             }
         });
 //
         txtOrderId.setOnAction(event -> setOrder());
         txtOrderQty.setOnAction(event -> btnAdd.fire());
 
+    }
+//
+    private void initialItem(boolean b){
+        txtDescription.setDisable(b);
+        txtPackSize.setDisable(b);
+        txtUnitPrice.setDisable(b);
+        txtQtyOnHand.setDisable(b);
+        txtTotal.setDisable(b);
+        txtOrderQty.setDisable(b);
+        btnRemove.setDisable(b);
+        btnAdd.setDisable(true);
+    }
+//
+    private void initialItem(){
+        lblItemCode.setText("");
+        txtDescription.clear();
+        txtPackSize.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
+        txtTotal.clear();
+        txtOrderQty.clear();
+    }
+//
+    private void clearUi(){
+        cmbCustomerId.getSelectionModel().clearSelection();
+        txtName.clear();txtAddress.clear();
+        tblOrderId.getItems().clear();
+        txtOrderId.clear();lblOrderId.setText("");
+        tblOrderDetails.getItems().clear();
+        initialItem();
+        txtNewTotal.clear();
+        txtPresTotal.clear();
+        txtCash.clear();
+        txtBalance.clear();
     }
 //
     private void calculateItemTotal() {
@@ -174,9 +238,9 @@ public class OrderManageFormController {
         }catch (NullPointerException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, ""+ e.getMessage()).show();
         } catch (ClassNotFoundException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, " "+e.getMessage()).show();
         }
     }
 //
@@ -278,14 +342,7 @@ public class OrderManageFormController {
             tblOrderDetails.getItems().remove(tblOrderDetails.getSelectionModel().getSelectedItem());
             tblOrderDetails.getSelectionModel().clearSelection();
 
-            lblItemCode.setText("");
-            txtDescription.clear();
-            txtPackSize.clear();
-            txtUnitPrice.clear();
-            txtQtyOnHand.clear();
-            txtTotal.clear();
-            txtOrderQty.clear();
-
+            initialItem();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to delete the item " + lblItemCode.getText()).show();
         } catch (ClassNotFoundException e) {
@@ -307,34 +364,13 @@ public class OrderManageFormController {
             tblOrderDetails.getItems().add(new ItemTM(lblItemCode.getText(), txtDescription.getText(), txtPackSize.getText(), new BigDecimal(txtUnitPrice.getText()), Integer.parseInt(txtQtyOnHand.getText()), Integer.parseInt(txtOrderQty.getText())));
         }
 
-        txtPresTotal.setText(String.valueOf(calculateAllTotal()));
-        lblItemCode.setText("");
-        txtDescription.clear();
-        txtPackSize.clear();
-        txtUnitPrice.clear();
-        txtQtyOnHand.clear();
-        txtTotal.clear();
-        txtOrderQty.clear();
+        txtNewTotal.setText(String.valueOf(calculateAllTotal()));
+        initialItem();
     }
 //
     @FXML
     public void cancelOrderEditOnAction(ActionEvent actionEvent) {
-        cmbCustomerId.getSelectionModel().clearSelection();
-        txtName.clear();txtAddress.clear();
-        tblOrderId.getItems().clear();
-        txtOrderId.clear();lblOrderId.setText("");
-        tblOrderDetails.getItems().clear();
-        lblItemCode.setText("");
-        txtDescription.clear();
-        txtPackSize.clear();
-        txtUnitPrice.clear();
-        txtQtyOnHand.clear();
-        txtTotal.clear();
-        txtOrderQty.clear();
-        txtNewTotal.clear();
-        txtPresTotal.clear();
-        txtCash.clear();
-        txtBalance.clear();
+        clearUi();
     }
 //
     @FXML
@@ -347,28 +383,42 @@ public class OrderManageFormController {
         } else {
             new Alert(Alert.AlertType.ERROR, "Order Update has not been placed successfully").show();
         }
-
-        cmbCustomerId.getSelectionModel().clearSelection();
-        txtName.clear();txtAddress.clear();
-        tblOrderId.getItems().clear();
-        txtOrderId.clear();lblOrderId.setText("");
-        tblOrderDetails.getItems().clear();
-        lblItemCode.setText("");
-        txtDescription.clear();
-        txtPackSize.clear();
-        txtUnitPrice.clear();
-        txtQtyOnHand.clear();
-        txtTotal.clear();
-        txtOrderQty.clear();
-        txtNewTotal.clear();
-        txtPresTotal.clear();
-        txtCash.clear();
-        txtBalance.clear();
+        clearUi();
     }
 
-    private boolean saveOrderDetails(List<OrderDetailsDTO> orderDetails) {
-        /*Transaction*/
+    private boolean saveOrderDetails(List<OrderDetailsDTO> details) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            for (OrderDetailsDTO detail : details) {
 
+                PreparedStatement stm = connection.prepareStatement("UPDATE `Order Detail` SET orderQTY=? WHERE itemCode=?");
+                stm.setInt(1,detail.getOrderQty());
+                stm.setString(2,detail.getItemCode());
+
+                if (!(stm.executeUpdate() > 0)) {
+                    return false;
+                }
+
+
+                ItemDTO item = findItem(detail.getItemCode());
+                item.setQtyOnHand(item.getQtyOnHand() - detail.getOrderQty());
+
+                stm = connection.prepareStatement("UPDATE Item SET qtyOnHand=? WHERE itemCode=?");
+                stm.setInt(1, item.getQtyOnHand());
+                stm.setString(2, item.getItemCode());
+
+                if (!(stm.executeUpdate() > 0)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (SQLIntegrityConstraintViolationException e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR," "+ e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR,""+ e.getMessage()).show();
+        }
         return false;
     }
 //
@@ -392,9 +442,11 @@ public class OrderManageFormController {
     public void orderQtyKeyReleased(KeyEvent keyEvent) {
         if (!txtOrderQty.getText().matches("\\d+") || Integer.parseInt(txtOrderQty.getText()) <= 0 ||
                 Integer.parseInt(txtOrderQty.getText()) > Integer.parseInt(txtQtyOnHand.getText())) {
+            btnAdd.setDisable(true);
             txtOrderQty.requestFocus();
             txtOrderQty.selectAll();
         }else {
+            btnAdd.setDisable(false);
             calculateItemTotal();
         }
     }
