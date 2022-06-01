@@ -60,6 +60,8 @@ public class OrderManageFormController {
     public ComboBox<String> cmbCustomerId;
     public TableView<OrderTM> tblOrderId;
     public TableView<ItemTM> tblOrderDetails;
+    private int orderQty = 0;
+    private int qtyOnHand = 0;
 
     public void  initialize(){
 //
@@ -155,7 +157,8 @@ public class OrderManageFormController {
                 txtQtyOnHand.setText(item.getQtyOnHand()+"");
                 txtOrderQty.setText(item.getOrderQty()+"");
                 calculateItemTotal();
-
+                orderQty = item.getOrderQty();
+                qtyOnHand = item.getQtyOnHand();
             }else {
                 initialItem(true);
             }
@@ -358,13 +361,18 @@ public class OrderManageFormController {
         if (exists) {
             ItemTM itemTM = tblOrderDetails.getItems().stream().filter(detail -> detail.getItemCode().equals(lblItemCode.getText())).findFirst().get();
             itemTM.setOrderQty(Integer.parseInt(txtOrderQty.getText()));
+            itemTM.setQtyOnHand(Integer.parseInt(txtQtyOnHand.getText()));
             tblOrderDetails.getSelectionModel().clearSelection();
             tblOrderDetails.refresh();
         } else {
             tblOrderDetails.getItems().add(new ItemTM(lblItemCode.getText(), txtDescription.getText(), txtPackSize.getText(), new BigDecimal(txtUnitPrice.getText()), Integer.parseInt(txtQtyOnHand.getText()), Integer.parseInt(txtOrderQty.getText())));
         }
-
+        txtPresTotal.setFocusTraversable(false);
+        txtNewTotal.setFocusTraversable(false);
         txtNewTotal.setText(String.valueOf(calculateAllTotal()));
+        txtBalance.setText(String.valueOf(Double.parseDouble(txtPresTotal.getText())-Double.parseDouble(txtNewTotal.getText())));
+        txtCash.setFocusTraversable(false);
+        txtBalance.setFocusTraversable(false);
         initialItem();
     }
 //
@@ -385,7 +393,7 @@ public class OrderManageFormController {
         }
         clearUi();
     }
-
+//
     private boolean saveOrderDetails(List<OrderDetailsDTO> details) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -401,11 +409,11 @@ public class OrderManageFormController {
 
 
                 ItemDTO item = findItem(detail.getItemCode());
-                item.setQtyOnHand(item.getQtyOnHand() - detail.getOrderQty());
+                item.setQtyOnHand(item.getQtyOnHand() + (orderQty-detail.getOrderQty()));
 
                 stm = connection.prepareStatement("UPDATE Item SET qtyOnHand=? WHERE itemCode=?");
                 stm.setInt(1, item.getQtyOnHand());
-                stm.setString(2, item.getItemCode());
+                stm.setString(2, detail.getItemCode());
 
                 if (!(stm.executeUpdate() > 0)) {
                     return false;
@@ -441,13 +449,14 @@ public class OrderManageFormController {
     @FXML
     public void orderQtyKeyReleased(KeyEvent keyEvent) {
         if (!txtOrderQty.getText().matches("\\d+") || Integer.parseInt(txtOrderQty.getText()) <= 0 ||
-                Integer.parseInt(txtOrderQty.getText()) > Integer.parseInt(txtQtyOnHand.getText())) {
+                Integer.parseInt(txtOrderQty.getText()) > orderQty) {
             btnAdd.setDisable(true);
             txtOrderQty.requestFocus();
             txtOrderQty.selectAll();
         }else {
             btnAdd.setDisable(false);
             calculateItemTotal();
+            txtQtyOnHand.setText(qtyOnHand+(orderQty-Integer.parseInt(txtOrderQty.getText()))+"");
         }
     }
 //

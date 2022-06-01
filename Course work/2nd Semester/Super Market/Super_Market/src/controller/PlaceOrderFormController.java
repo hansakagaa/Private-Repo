@@ -145,10 +145,10 @@ public class PlaceOrderFormController {
                         new Alert(Alert.AlertType.ERROR, "Failed to find the customer " + newValue + "" + e).show();
                     }
 
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
                 } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, ""+e.getMessage()).show();
                 }
             } else {
                 txtName.clear();
@@ -186,10 +186,10 @@ public class PlaceOrderFormController {
 
                     txtOrderQty.requestFocus();
 
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
                 } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, ""+e.getMessage()).show();
                 }
 
             } else {
@@ -244,7 +244,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to load customer ids").show();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 //
@@ -259,7 +259,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, ""+e.getMessage()).show();
         }
     }
 //
@@ -530,10 +530,10 @@ public class PlaceOrderFormController {
             connection.setAutoCommit(true);
             return true;
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, ""+e.getMessage()).show();
         }
         return false;
     }
