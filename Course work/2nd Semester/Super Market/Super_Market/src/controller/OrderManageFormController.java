@@ -399,9 +399,10 @@ public class OrderManageFormController {
             Connection connection = DBConnection.getInstance().getConnection();
             for (OrderDetailsDTO detail : details) {
 
-                PreparedStatement stm = connection.prepareStatement("UPDATE `Order Detail` SET orderQTY=? WHERE itemCode=?");
+                PreparedStatement stm = connection.prepareStatement("UPDATE `Order Detail` SET orderQTY=? WHERE orderID=? AND itemCode=?");
                 stm.setInt(1,detail.getOrderQty());
-                stm.setString(2,detail.getItemCode());
+                stm.setString(2,detail.getOrderID());
+                stm.setString(3,detail.getItemCode());
 
                 if (!(stm.executeUpdate() > 0)) {
                     return false;

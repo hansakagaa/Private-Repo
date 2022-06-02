@@ -40,6 +40,10 @@ public class SystemReportFormController {
     public TableView<CartTM> tblItem;
     public ImageView imgMostItem;
     public ImageView imgLeastItem;
+    List<CartTM> items = new ArrayList<>();
+    List<CartTM> itemTM = new ArrayList<>();
+    List<OrderDTO> orderDto = new ArrayList<>();
+    List<OrderDetailsDTO> orderDetailsDto = new ArrayList<>();
 
     public void initialize(){
 //
@@ -77,10 +81,29 @@ public class SystemReportFormController {
 
     private void setLeastMovableItem() {
 
+        for (CartTM dto : setMovableItem()) {
+//            for (CartTM cartTM : itemTM) {
+//                if (!dto.getItemCode().equals(cartTM.getItemCode())) {
+                    tblItem.getItems().add(new CartTM(dto.getItemCode(), dto.getDescription(), dto.getPackSize(), dto.getUnitPrice(), dto.getOrderQty(), dto.getTotal()));
+//                }
+//            }
+        }
     }
 
     private void setMostMovableItem() {
 
+    }
+
+    private List<CartTM> setMovableItem(){
+        itemTM.clear();
+        for (CartTM cart : items) {
+            for (CartTM cartTM : items) {
+                if (cart.getItemCode().equals(cartTM.getItemCode())){
+                    itemTM.add(new CartTM(cart.getItemCode(), cart.getDescription(), cart.getPackSize(), cart.getUnitPrice(), cart.getOrderQty()+cartTM.getOrderQty(), cart.getTotal().add(cartTM.getTotal())));
+                }
+            }
+        }
+        return itemTM;
     }
 
 //
@@ -129,9 +152,7 @@ public class SystemReportFormController {
 //
     @FXML
     public void selectDateOnAction(javafx.event.ActionEvent actionEvent) {
-
-        List<OrderDTO> orderDto = new ArrayList<>();
-        List<OrderDetailsDTO> orderDetailsDto = new ArrayList<>();
+        tblItem.getItems().clear();
         if (startDate.getValue() != null && endDate.getValue() != null){
             BigDecimal totalInCome = new BigDecimal(0);
             int orderCount = 0;
@@ -142,9 +163,11 @@ public class SystemReportFormController {
                 pStm.setString(1,startDate.getValue().toString());
                 pStm.setString(2,endDate.getValue().toString());
                 ResultSet rst = pStm.executeQuery();
+                orderDto.clear();
                 while (rst.next()){
                     orderDto.add(new OrderDTO(rst.getString("orderID"), rst.getDate("orderDate"), rst.getString("cstID")));
                 }
+                orderDetailsDto.clear();
                 pStm = connection.prepareStatement("SELECT * FROM `Order Detail` WHERE orderID=?");
                 for (OrderDTO dto : orderDto) {
                     pStm.setString(1, dto.getOrderID());
@@ -155,13 +178,15 @@ public class SystemReportFormController {
                 }
                 orderCount = orderDto.size();
 
+                items.clear();
                 pStm = connection.prepareStatement("SELECT * FROM Item WHERE itemCode=?");
                 for (OrderDetailsDTO dto : orderDetailsDto) {
                     ItemDTO itemDTO = new ItemDTO();
                     pStm.setString(1,dto.getItemCode());
                     rst = pStm.executeQuery();
                     while (rst.next()){
-                        itemDTO = new ItemDTO(rst.getString(1), rst.getString(2), rst.getString(3), rst.getBigDecimal(4), rst.getInt(5));
+                        itemDTO = (new ItemDTO(rst.getString(1), rst.getString(2), rst.getString(3), rst.getBigDecimal(4), rst.getInt(5)));
+                        items.add(new CartTM(rst.getString(1), rst.getString(2), rst.getString(3), rst.getBigDecimal(4), dto.getOrderQty(), rst.getBigDecimal(4).multiply(BigDecimal.valueOf(dto.getOrderQty()))));
                     }
                     totalInCome = totalInCome.add(itemDTO.getUnitPrice().multiply(BigDecimal.valueOf(dto.getOrderQty())));
                 }
@@ -174,7 +199,7 @@ public class SystemReportFormController {
                 new Alert(Alert.AlertType.ERROR,""+ e.getMessage()).show();
             }
 
-            txtIncome.setText(totalInCome.toString());
+            txtIncome.setText(totalInCome+"");
             txtOrders.setText(orderCount+"");
         }
     }

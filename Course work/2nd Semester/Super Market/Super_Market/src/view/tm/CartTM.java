@@ -17,8 +17,8 @@ public class CartTM{
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
-        this.orderQty = orderQty;
         this.unitPrice = unitPrice;
+        this.orderQty = orderQty;
         this.total = total;
     }
 
