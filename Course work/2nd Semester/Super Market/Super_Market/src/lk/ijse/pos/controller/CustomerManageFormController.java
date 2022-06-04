@@ -1,7 +1,7 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.custom.CustomerBO;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.CustomerBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.ScaleTransition;
@@ -20,8 +20,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import dto.CustomerDTO;
-import view.tm.CustomerTM;
+import lk.ijse.pos.dto.CustomerDTO;
+import lk.ijse.pos.view.tm.CustomerTM;
 
 import java.io.IOException;
 import java.sql.*;
@@ -88,6 +88,7 @@ public class CustomerManageFormController {
 //
     private void initialUi() {
         setDisable(true,txtId,txtName,txtAddress,txtTitle,txtPostalCode,txtCity,txtProvince);
+        clear(txtId,txtName,txtAddress,txtTitle,txtPostalCode,txtCity,txtProvince);
         btnSaveOrUpdate.setDisable(true);
         btnDelete.setDisable(true);
     }
@@ -109,14 +110,15 @@ public class CustomerManageFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/cashier-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/cashier-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 //
     @FXML
     public void newCustomerOnAction(ActionEvent actionEvent) {
-        setDisable(false,txtId,txtName,txtAddress,txtTitle,txtCity,txtProvince,txtPostalCode);
+
+        setDisable(false,txtName,txtAddress,txtTitle,txtCity,txtProvince,txtPostalCode);
 
         clear(txtId,txtName,txtAddress,txtTitle,txtProvince,txtPostalCode,txtCity);
         txtId.setText(generateNewId());
@@ -129,7 +131,7 @@ public class CustomerManageFormController {
 //
     private void setDisable(boolean b, JFXTextField... field){
         for (JFXTextField textField : field) {
-            textField.setEditable(b);
+            textField.setDisable(b);
         }
     }
 //
@@ -239,6 +241,7 @@ public class CustomerManageFormController {
             selectedCustomer.setPostalCode(postalCode);
             tblCustomer.refresh();
         }
+
         btnNew.fire();
     }
 //

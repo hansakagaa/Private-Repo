@@ -1,4 +1,4 @@
-package controller;
+package lk.ijse.pos.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -37,9 +37,9 @@ public class LoginFormController {
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
         Parent parent = null;
         if (txtUserName.getText().equals("cashier") && txtPassword.getText().equals("1234")){
-            parent = FXMLLoader.load(this.getClass().getResource("/view/cashier-form.fxml"));
+            parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/cashier-form.fxml"));
         }else if (txtUserName.getText().equals("admin") && txtPassword.getText().equals("1234")){
-            parent = FXMLLoader.load(this.getClass().getResource("/view/administrator-form.fxml"));
+            parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/administrator-form.fxml"));
         }else {
             lblMessage.setText("\"User name or Password\" is incorrect.");
         }

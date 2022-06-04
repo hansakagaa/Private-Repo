@@ -1,8 +1,8 @@
-package dao.custom.impl;
+package lk.ijse.pos.dao.custom.impl;
 
-import dao.SQLUtil;
-import dao.custom.OrderDAO;
-import entity.Orders;
+import lk.ijse.pos.dao.SQLUtil;
+import lk.ijse.pos.dao.custom.OrderDAO;
+import lk.ijse.pos.entity.Orders;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

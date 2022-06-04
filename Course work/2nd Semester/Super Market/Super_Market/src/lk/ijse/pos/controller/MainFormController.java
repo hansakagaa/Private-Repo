@@ -1,4 +1,4 @@
-package controller;
+package lk.ijse.pos.controller;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;
@@ -15,9 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class MainFormController {
@@ -40,7 +38,7 @@ public class MainFormController {
 
     @FXML
     public void navigateToSystem(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(this.getClass().getResource("/view/login-form.fxml"));
+        Parent parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/login-form.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(scene);

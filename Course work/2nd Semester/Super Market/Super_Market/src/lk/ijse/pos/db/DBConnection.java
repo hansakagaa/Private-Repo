@@ -1,4 +1,4 @@
-package db;
+package lk.ijse.pos.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

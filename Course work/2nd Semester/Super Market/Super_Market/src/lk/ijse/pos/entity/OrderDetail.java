@@ -1,4 +1,4 @@
-package entity;
+package lk.ijse.pos.entity;
 
 import java.math.BigDecimal;
 

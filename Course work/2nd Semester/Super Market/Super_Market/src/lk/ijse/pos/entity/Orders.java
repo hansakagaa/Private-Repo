@@ -1,4 +1,4 @@
-package entity;
+package lk.ijse.pos.entity;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -8,7 +8,7 @@ public class Orders {
     private LocalDate orderDate;
     private String cstID;
 
-    public Orders() {
+    public Orders(String string, Date date, String rstString) {
     }
 
     public Orders(String orderID, LocalDate orderDate, String cstID) {

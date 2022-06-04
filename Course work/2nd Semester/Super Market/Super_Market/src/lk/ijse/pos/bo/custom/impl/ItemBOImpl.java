@@ -1,10 +1,10 @@
-package bo.custom.impl;
+package lk.ijse.pos.bo.custom.impl;
 
-import bo.custom.ItemBO;
-import dao.DAOFactory;
-import dao.custom.ItemDAO;
-import dto.ItemDTO;
-import entity.Item;
+import lk.ijse.pos.bo.custom.ItemBO;
+import lk.ijse.pos.dao.DAOFactory;
+import lk.ijse.pos.dao.custom.ItemDAO;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.entity.Item;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

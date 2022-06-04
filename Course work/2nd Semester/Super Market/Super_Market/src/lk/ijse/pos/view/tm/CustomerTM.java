@@ -1,4 +1,4 @@
-package view.tm;
+package lk.ijse.pos.view.tm;
 
 public class CustomerTM implements Comparable<CustomerTM> {
     private String id;

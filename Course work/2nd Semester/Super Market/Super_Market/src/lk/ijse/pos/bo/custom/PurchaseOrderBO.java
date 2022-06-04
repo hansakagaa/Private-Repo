@@ -1,15 +1,12 @@
-package bo.custom;
+package lk.ijse.pos.bo.custom;
 
-import bo.SuperBO;
-import dto.CustomerDTO;
-import dto.ItemDTO;
-import dto.OrderDTO;
-import dto.OrderDetailsDTO;
+import lk.ijse.pos.bo.SuperBO;
+import lk.ijse.pos.dto.CustomerDTO;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.dto.OrderDTO;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public interface PurchaseOrderBO extends SuperBO {
 

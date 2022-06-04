@@ -1,16 +1,16 @@
-package bo.custom.impl;
+package lk.ijse.pos.bo.custom.impl;
 
-import bo.custom.SystemReportBO;
-import dao.DAOFactory;
-import dao.custom.ItemDAO;
-import dao.custom.OrderDAO;
-import dao.custom.OrderDetailsDAO;
-import dto.ItemDTO;
-import dto.OrderDTO;
-import dto.OrderDetailsDTO;
-import entity.Item;
-import entity.OrderDetail;
-import entity.Orders;
+import lk.ijse.pos.bo.custom.SystemReportBO;
+import lk.ijse.pos.dao.DAOFactory;
+import lk.ijse.pos.dao.custom.ItemDAO;
+import lk.ijse.pos.dao.custom.OrderDAO;
+import lk.ijse.pos.dao.custom.OrderDetailsDAO;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.dto.OrderDTO;
+import lk.ijse.pos.dto.OrderDetailsDTO;
+import lk.ijse.pos.entity.Item;
+import lk.ijse.pos.entity.OrderDetail;
+import lk.ijse.pos.entity.Orders;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

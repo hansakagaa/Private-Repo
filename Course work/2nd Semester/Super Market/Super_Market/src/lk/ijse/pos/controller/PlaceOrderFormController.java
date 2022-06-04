@@ -1,10 +1,10 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.custom.PurchaseOrderBO;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.PurchaseOrderBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dto.OrderDTO;
+import lk.ijse.pos.dto.OrderDTO;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -22,10 +22,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import dto.CustomerDTO;
-import dto.ItemDTO;
-import dto.OrderDetailsDTO;
-import view.tm.CartTM;
+import lk.ijse.pos.dto.CustomerDTO;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.dto.OrderDetailsDTO;
+import lk.ijse.pos.view.tm.CartTM;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -269,7 +269,7 @@ public class PlaceOrderFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/cashier-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/cashier-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }

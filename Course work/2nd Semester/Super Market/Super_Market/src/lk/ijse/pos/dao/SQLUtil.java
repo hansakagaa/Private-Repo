@@ -1,6 +1,6 @@
-package dao;
+package lk.ijse.pos.dao;
 
-import db.DBConnection;
+import lk.ijse.pos.db.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

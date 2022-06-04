@@ -1,4 +1,4 @@
-package dto;
+package lk.ijse.pos.dto;
 
 public class CustomerDTO implements Comparable<CustomerDTO>{
     private String id;

@@ -1,7 +1,8 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.custom.ItemBO;
+import javafx.scene.control.TableView;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.ItemBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.ScaleTransition;
@@ -11,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -20,8 +20,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import dto.ItemDTO;
-import view.tm.ItemTM;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.view.tm.ItemTM;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -103,7 +103,7 @@ public class ItemManageFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/administrator-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/administrator-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
@@ -140,7 +140,7 @@ public class ItemManageFormController {
 //
     private void setDisable(boolean b, JFXTextField... field){
         for (JFXTextField textField : field) {
-            textField.setEditable(b);
+            textField.setDisable(b);
         }
     }
 //

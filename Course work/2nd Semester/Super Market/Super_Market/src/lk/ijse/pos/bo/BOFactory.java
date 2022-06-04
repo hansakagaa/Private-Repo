@@ -1,6 +1,6 @@
-package bo;
+package lk.ijse.pos.bo;
 
-import bo.custom.impl.*;
+import lk.ijse.pos.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;

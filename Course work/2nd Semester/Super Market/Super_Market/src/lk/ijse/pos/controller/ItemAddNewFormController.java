@@ -1,4 +1,4 @@
-package controller;
+package lk.ijse.pos.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -7,7 +7,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -18,7 +17,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class ItemAddNewFormController {
     public AnchorPane root;
@@ -32,7 +30,7 @@ public class ItemAddNewFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/administrator-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/administrator-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }

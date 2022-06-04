@@ -1,9 +1,9 @@
-package dao.custom.impl;
+package lk.ijse.pos.dao.custom.impl;
 
 
-import dao.SQLUtil;
-import dao.custom.CustomerDAO;
-import entity.Customer;
+import lk.ijse.pos.dao.SQLUtil;
+import lk.ijse.pos.dao.custom.CustomerDAO;
+import lk.ijse.pos.entity.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;

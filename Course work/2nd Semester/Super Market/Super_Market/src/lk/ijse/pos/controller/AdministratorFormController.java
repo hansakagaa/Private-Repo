@@ -1,4 +1,4 @@
-package controller;
+package lk.ijse.pos.controller;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -31,10 +31,10 @@ public class AdministratorFormController {
             Parent parent = null;
             switch (icon.getId()) {
                 case "imgItem":
-                    parent = FXMLLoader.load(this.getClass().getResource("/view/item-manage-form.fxml"));
+                    parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/item-manage-form.fxml"));
                     break;
                 case "imgReport":
-                    parent = FXMLLoader.load(this.getClass().getResource("/view/system-report-form.fxml"));
+                    parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/system-report-form.fxml"));
                     break;
             }
 

@@ -1,4 +1,4 @@
-package dto;
+package lk.ijse.pos.dto;
 
 import java.math.BigDecimal;
 import java.sql.Date;

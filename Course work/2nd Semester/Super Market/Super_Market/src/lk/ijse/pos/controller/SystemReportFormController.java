@@ -1,7 +1,7 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.custom.SystemReportBO;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.SystemReportBO;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.ScaleTransition;
@@ -20,10 +20,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import dto.ItemDTO;
-import dto.OrderDTO;
-import dto.OrderDetailsDTO;
-import view.tm.CartTM;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.dto.OrderDTO;
+import lk.ijse.pos.dto.OrderDetailsDTO;
+import lk.ijse.pos.view.tm.CartTM;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -61,7 +61,7 @@ public class SystemReportFormController {
     @FXML
     public void navigateToHome(MouseEvent event) throws IOException {
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/administrator-form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/administrator-form.fxml"))));
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }

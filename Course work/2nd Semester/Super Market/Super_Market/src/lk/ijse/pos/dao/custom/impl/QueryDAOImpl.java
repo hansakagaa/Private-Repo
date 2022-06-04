@@ -1,6 +1,6 @@
-package dao.custom.impl;
+package lk.ijse.pos.dao.custom.impl;
 
-import dao.custom.QueryDAO;
+import lk.ijse.pos.dao.custom.QueryDAO;
 
 public class QueryDAOImpl implements QueryDAO {
 }

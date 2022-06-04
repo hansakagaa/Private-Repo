@@ -1,7 +1,7 @@
-package dao.custom;
+package lk.ijse.pos.dao.custom;
 
-import dao.CrudDAO;
-import entity.OrderDetail;
+import lk.ijse.pos.dao.CrudDAO;
+import lk.ijse.pos.entity.OrderDetail;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

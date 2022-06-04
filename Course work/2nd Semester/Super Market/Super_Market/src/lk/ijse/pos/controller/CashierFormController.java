@@ -1,4 +1,4 @@
-package controller;
+package lk.ijse.pos.controller;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -32,13 +32,13 @@ public class CashierFormController {
             Parent parent = null;
             switch (icon.getId()) {
                 case "imgMakeOrder":
-                    parent = FXMLLoader.load(this.getClass().getResource("/view/place-order-form.fxml"));
+                    parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/place-order-form.fxml"));
                     break;
                 case "imgManageOrder":
-                    parent = FXMLLoader.load(this.getClass().getResource("/view/order-manage-form.fxml"));
+                    parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/order-manage-form.fxml"));
                     break;
                 case "imgManageCustomer":
-                    parent = FXMLLoader.load(this.getClass().getResource("/view/customer-manage-form.fxml"));
+                    parent = FXMLLoader.load(this.getClass().getResource("/lk/ijse/pos/view/customer-manage-form.fxml"));
                     break;
             }
 
